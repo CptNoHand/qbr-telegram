@@ -11,6 +11,14 @@ local locations = {
     { x=-178.90, y=626.71, z=114.09 }, -- Valentine train station
     { x=1225.57, y=-1293.87, z=76.91 }, -- Rhodes train station
     { x=2731.55, y=-1402.37, z=46.18 }, -- Saint Denis train station
+    { x=1521.96, y=439.48, z=90.68 }, -- Emerald Ranch train station
+    { x=2985.95, y=569.64, z=44.62 }, -- Van Horn
+    { x=2939.10, y=1287.60, z=44.65 }, -- Annesburg
+    { x=-1094.25, y=-574.81, z=82.50 }, -- Riggs Station
+    { x=-1765.06, y=-384.20, z=157.74 }, -- Strawberry
+    { x=-874.97, y=-1328.76, z=43.95 }, -- Blackwater
+    { x=-3733.97, y=-2597.82, z=-12.92 }, -- Armadillo train station
+    { x=-5227.40, y=-3470.58, z=-20.56 }, -- Benedict point
 }
 
 for k, v in pairs(locations) do
