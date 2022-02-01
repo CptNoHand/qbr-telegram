@@ -20,7 +20,7 @@ for k, v in pairs(locations) do
                 local blip = N_0x554d9d53f696d002(1664425300, vector3(v.x,v.y,v.z))
                 SetBlipSprite(blip, 1475382911)
                 SetBlipScale(blip, 0.2)
-                Citizen.InvokeNative(0x9CB1A1623062F402, tonumber(blip), "Post Office")
+                Citizen.InvokeNative(0x9CB1A1623062F402, tonumber(blip), Lang:t('telegram.post_office'))
             break
         end
     end)
@@ -33,7 +33,7 @@ AddEventHandler("Telegram:ReturnMessages", function(data)
 
     if next(telegrams) == nil then
         SetNuiFocus(true, true)
-        SendNUIMessage({ message = "No telegrams to display." })
+        SendNUIMessage({ message = Lang:t('telegram.no_telegrams') })
     else
         SetNuiFocus(true, true)
         SendNUIMessage({ sender = telegrams[index].sender, message = telegrams[index].message })
@@ -46,7 +46,7 @@ Citizen.CreateThread(function()
         for key, value in pairs(locations) do
            if IsPlayerNearCoords(value.x, value.y, value.z) then
                 if not menu then
-                    DrawText3D(value.x, value.y, value.z, "Press ~d~[G]~s~ to view your telegrams.", 0.5, 0.88)
+                    DrawText3D(value.x, value.y, value.z, Lang:t('telegram.press_to_view', {value = '~d~[G]~s~'}))
                     if IsControlJustReleased(0, 0x760A9C6F) then
                         menu = true
                         TriggerServerEvent("Telegram:GetMessages")
@@ -112,8 +112,8 @@ RegisterNUICallback('delete', function()
 end)
 
 function GetFirstname()
-    AddTextEntry("FMMC_KEY_TIP8", "Recipient's Firstname: ")
-    DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
+    AddTextEntry("FMMC_KEY_TIP8", Lang:t('telegram.first_name'))
+    DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
 
     while (UpdateOnscreenKeyboard() == 0) do
         Wait(0);
@@ -137,8 +137,8 @@ function GetFirstname()
 end
 
 function GetLastname(firstname)
-    AddTextEntry("FMMC_KEY_TIP8", "Recipient's Lastname: ")
-    DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
+    AddTextEntry("FMMC_KEY_TIP8", Lang:t('telegram.last_name'))
+    DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
 
     while (UpdateOnscreenKeyboard() == 0) do
         Wait(0);
@@ -162,8 +162,8 @@ function GetLastname(firstname)
 end
 
 function GetMessage(firstname, lastname)
-    AddTextEntry("FMMC_KEY_TIP12", "Message: ")
-    DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP12", "", "", "", "", "", 150)
+    AddTextEntry("FMMC_KEY_TIP12", Lang:t('telegram.message'))
+    DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP12", "", "", "", "", "", 150)
 
     while (UpdateOnscreenKeyboard() == 0) do
         Wait(0);
