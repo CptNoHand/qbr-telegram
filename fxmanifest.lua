@@ -4,7 +4,14 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 
 ui_page "html/index.html"
 
-client_script 'client/main.lua'
+shared_scripts {
+    '@qbr-core/shared/locale.lua',
+    'locale/en.lua'
+}
+
+client_scripts {
+    'client/main.lua'
+} 
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',

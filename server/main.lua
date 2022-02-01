@@ -43,13 +43,13 @@ AddEventHandler("Telegram:SendMessage", function(firstname, lastname, message, p
 							end
 							]]
 						else 
-							TriggerClientEvent('QBCore:Notify', _source, "We're unable to process your Telegram right now. Please try again later.", 'error')
+							TriggerClientEvent('QBCore:Notify', _source, Lang:t('telegram.unable_to_process'), 'error')
 						end
 					end)
 
-					TriggerClientEvent('QBCore:Notify', _source, "Your telegram has been posted.", 'success')
+					TriggerClientEvent('QBCore:Notify', _source, Lang:t('telegram.telegram_posted'), 'success')
 				else 
-					TriggerClientEvent('QBCore:Notify', _source, "Unable to process Telegram. Invalid first or lastname.", 'error')
+					TriggerClientEvent('QBCore:Notify', _source, Lang:t('telegram.invalid_name'), 'error')
 				end
 			end)
 end)
@@ -61,7 +61,7 @@ AddEventHandler("Telegram:DeleteMessage", function(id)
 		if count > 0 then 
 			TriggerEvent("Telegram:GetMessages", _source)
 		else
-			TriggerClientEvent('QBCore:Notify', _source, "We're unable to delete your Telegram right now. Please try again later.", 'error')
+			TriggerClientEvent('QBCore:Notify', _source, Lang:t('telegrm.unable_to_delete'), 'error')
 		end
 	end)
 end)
