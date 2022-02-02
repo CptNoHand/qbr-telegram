@@ -61,7 +61,7 @@ AddEventHandler("Telegram:DeleteMessage", function(id)
 		if count > 0 then 
 			TriggerEvent("Telegram:GetMessages", _source)
 		else
-			TriggerClientEvent('QBCore:Notify', _source, Lang:t('telegrm.unable_to_delete'), 'error')
+			TriggerClientEvent('QBCore:Notify', _source, Lang:t('telegram.unable_to_delete'), 'error')
 		end
 	end)
 end)
